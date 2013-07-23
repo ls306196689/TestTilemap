@@ -14,7 +14,14 @@ public:
     
     // a selector callback
     void menuCloseCallback(CCObject* pSender);
-
+    
+    void testTMX();
+    
+    void updateMap();
+    
+    virtual void ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
+    virtual void ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent);
+    
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(HelloWorld);
 };

@@ -280,6 +280,8 @@
 		18015E8F179E795500491932 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18015E8E179E795500491932 /* libwebsockets.a */; };
 		18015E95179E795500491932 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18015E94179E795500491932 /* AppDelegate.cpp */; };
 		18015E98179E795500491932 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18015E97179E795500491932 /* HelloWorldScene.cpp */; };
+		18015EA0179E7D5900491932 /* orthogonal-test2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 18015E9F179E7D5900491932 /* orthogonal-test2.tmx */; };
+		18015EA2179E7F3400491932 /* fixed-ortho-test2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18015EA1179E7F3400491932 /* fixed-ortho-test2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -873,6 +875,8 @@
 		18015E94179E795500491932 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		18015E96179E795500491932 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		18015E97179E795500491932 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		18015E9F179E7D5900491932 /* orthogonal-test2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "orthogonal-test2.tmx"; sourceTree = "<group>"; };
+		18015EA1179E7F3400491932 /* fixed-ortho-test2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fixed-ortho-test2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -944,6 +948,8 @@
 		18015B02179E795000491932 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18015E9F179E7D5900491932 /* orthogonal-test2.tmx */,
+				18015EA1179E7F3400491932 /* fixed-ortho-test2.png */,
 				18015B03179E795000491932 /* CloseNormal.png */,
 				18015B05179E795000491932 /* CloseSelected.png */,
 				18015B07179E795000491932 /* Default.png */,
@@ -2158,12 +2164,14 @@
 				18015B0C179E795000491932 /* Icon-72.png in Resources */,
 				18015B0A179E795000491932 /* HelloWorld.png in Resources */,
 				18015B0E179E795000491932 /* Icon-Small-50.png in Resources */,
+				18015EA0179E7D5900491932 /* orthogonal-test2.tmx in Resources */,
 				18015B18179E795000491932 /* iTunesArtwork in Resources */,
 				18015B12179E795000491932 /* Icon-Small@2x.png in Resources */,
 				18015B08179E795000491932 /* Default.png in Resources */,
 				18015B06179E795000491932 /* CloseSelected.png in Resources */,
 				18015B16179E795000491932 /* Icon@2x.png in Resources */,
 				18015D2B179E795300491932 /* project.pbxproj in Resources */,
+				18015EA2179E7F3400491932 /* fixed-ortho-test2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2495,6 +2503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: lv miao (57YFPVXVHK)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2514,6 +2523,7 @@
 					"-websockets",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "269B3A75-52B9-463C-A7E3-A893BA256972";
 				USER_HEADER_SEARCH_PATHS = "\"TestTilemap/libs/Chipmunk/include/chipmunk\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2541,6 +2551,7 @@
 					"-websockets",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "269B3A75-52B9-463C-A7E3-A893BA256972";
 				USER_HEADER_SEARCH_PATHS = "\"TestTilemap/libs/Chipmunk/include/chipmunk\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -2566,6 +2577,7 @@
 				18015E9D179E795500491932 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

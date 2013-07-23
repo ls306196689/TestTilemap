@@ -3,7 +3,10 @@
 
 using namespace cocos2d;
 using namespace CocosDenshion;
-
+enum TAG_node {
+    TAG_map = 123,
+    
+    };
 CCScene* HelloWorld::scene()
 {
     // 'scene' is an autorelease object
@@ -29,48 +32,8 @@ bool HelloWorld::init()
         return false;
     }
 
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-                                        "CloseNormal.png",
-                                        "CloseSelected.png",
-                                        this,
-                                        menu_selector(HelloWorld::menuCloseCallback) );
-    pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
-
-    // create menu, it's an autorelease object
-    CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-    pMenu->setPosition( CCPointZero );
-    this->addChild(pMenu, 1);
-
-    /////////////////////////////
-    // 3. add your codes below...
-
-    // add a label shows "Hello World"
-    // create and initialize a label
-    CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Thonburi", 34);
-
-    // ask director the window size
-    CCSize size = CCDirector::sharedDirector()->getWinSize();
-
-    // position the label on the center of the screen
-    pLabel->setPosition( ccp(size.width / 2, size.height - 20) );
-
-    // add the label as a child to this layer
-    this->addChild(pLabel, 1);
-
-    // add "HelloWorld" splash screen"
-    CCSprite* pSprite = CCSprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(size.width/2, size.height/2) );
-
-    // add the sprite as a child to this layer
-    this->addChild(pSprite, 0);
     
+    testTMX();
     return true;
 }
 
@@ -81,4 +44,48 @@ void HelloWorld::menuCloseCallback(CCObject* pSender)
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif
+}
+void HelloWorld::testTMX()
+{
+    CCTMXTiledMap * map = CCTMXTiledMap::create("orthogonal-test2.tmx");
+    addChild(map,1,TAG_map);
+    
+    CCArray* children = map->getChildren();
+    
+    CCSpriteBatchNode* child = NULL;
+    CCObject* pObject = NULL;
+    CCARRAY_FOREACH(children, pObject)
+    {
+        child = (CCSpriteBatchNode*)pObject;
+        if (!child) {
+            break;
+        }
+        child->getTexture()->setAntiAliasTexParameters();
+    }
+    setTouchEnabled(true);
+}
+void HelloWorld::updateMap()
+{
+    CCNode *map = getChildByTag(TAG_map);
+}
+void HelloWorld::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
+{
+    CCTouch *touch = (CCTouch*)pTouches->anyObject();
+    CCPoint pmov = touch->getDelta();
+    CCNode *map = getChildByTag(TAG_map);
+    map->stopAllActions();
+    map->setPosition(ccpAdd(map->getPosition(), pmov));
+}
+void HelloWorld::ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
+{
+    CCTouch *touch = (CCTouch*)pTouches->anyObject();
+    CCPoint pmov = touch->getDelta();
+    CCNode *map = getChildByTag(TAG_map);
+   
+    if (fabsf(pmov.x) + fabsf(pmov.y) > 10) {
+        float dx = 10 * pmov.x;
+        float dy = 10 * pmov.y;
+        
+        map->runAction(CCEaseSineOut::create(CCMoveBy::create(0.3, ccp(dx, dy))));
+    }
 }
