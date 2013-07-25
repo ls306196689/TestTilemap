@@ -282,6 +282,15 @@
 		18015E98179E795500491932 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18015E97179E795500491932 /* HelloWorldScene.cpp */; };
 		18015EA0179E7D5900491932 /* orthogonal-test2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 18015E9F179E7D5900491932 /* orthogonal-test2.tmx */; };
 		18015EA2179E7F3400491932 /* fixed-ortho-test2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18015EA1179E7F3400491932 /* fixed-ortho-test2.png */; };
+		18091D7117A0C9CA00EC3889 /* maptest.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 18091D6F17A0C9CA00EC3889 /* maptest.tmx */; };
+		18091D7217A0C9CA00EC3889 /* tmw_desert_spacing.png in Resources */ = {isa = PBXBuildFile; fileRef = 18091D7017A0C9CA00EC3889 /* tmw_desert_spacing.png */; };
+		18091D7917A0EE0600EC3889 /* maptest1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 18091D7817A0EE0600EC3889 /* maptest1.tmx */; };
+		183FBB61179F9EB400197D99 /* test-object-layer.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 183FBB60179F9EB400197D99 /* test-object-layer.tmx */; };
+		183FBB63179F9ECA00197D99 /* tmw_desert_spacing.png in Resources */ = {isa = PBXBuildFile; fileRef = 183FBB62179F9ECA00197D99 /* tmw_desert_spacing.png */; };
+		183FBB65179F9F0700197D99 /* iso-test.png in Resources */ = {isa = PBXBuildFile; fileRef = 183FBB64179F9F0700197D99 /* iso-test.png */; };
+		183FBB67179F9F5700197D99 /* iso-test-movelayer.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 183FBB66179F9F5700197D99 /* iso-test-movelayer.tmx */; };
+		183FBB69179FA20500197D99 /* iso-test-zorder.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 183FBB68179FA20500197D99 /* iso-test-zorder.tmx */; };
+		183FBB6B179FA26600197D99 /* grossinis_sister1.png in Resources */ = {isa = PBXBuildFile; fileRef = 183FBB6A179FA26600197D99 /* grossinis_sister1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -877,6 +886,17 @@
 		18015E97179E795500491932 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
 		18015E9F179E7D5900491932 /* orthogonal-test2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "orthogonal-test2.tmx"; sourceTree = "<group>"; };
 		18015EA1179E7F3400491932 /* fixed-ortho-test2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fixed-ortho-test2.png"; sourceTree = "<group>"; };
+		18091D6F17A0C9CA00EC3889 /* maptest.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = maptest.tmx; sourceTree = "<group>"; };
+		18091D7017A0C9CA00EC3889 /* tmw_desert_spacing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tmw_desert_spacing.png; sourceTree = "<group>"; };
+		18091D7817A0EE0600EC3889 /* maptest1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = maptest1.tmx; sourceTree = "<group>"; };
+		183FBB60179F9EB400197D99 /* test-object-layer.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "test-object-layer.tmx"; sourceTree = "<group>"; };
+		183FBB62179F9ECA00197D99 /* tmw_desert_spacing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tmw_desert_spacing.png; sourceTree = "<group>"; };
+		183FBB64179F9F0700197D99 /* iso-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iso-test.png"; sourceTree = "<group>"; };
+		183FBB66179F9F5700197D99 /* iso-test-movelayer.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "iso-test-movelayer.tmx"; sourceTree = "<group>"; };
+		183FBB68179FA20500197D99 /* iso-test-zorder.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "iso-test-zorder.tmx"; sourceTree = "<group>"; };
+		183FBB6A179FA26600197D99 /* grossinis_sister1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grossinis_sister1.png; sourceTree = "<group>"; };
+		18F807A0179F6B9000B77604 /* HelpFunctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HelpFunctions.cpp; sourceTree = "<group>"; };
+		18F807A1179F6B9000B77604 /* HelpFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpFunctions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -936,6 +956,7 @@
 		18015B01179E795000491932 /* TestTilemap */ = {
 			isa = PBXGroup;
 			children = (
+				18091D6E17A0C9CA00EC3889 /* tilemap */,
 				18015B02179E795000491932 /* Resources */,
 				18015B1A179E795000491932 /* ios */,
 				18015B23179E795000491932 /* libs */,
@@ -950,6 +971,12 @@
 			children = (
 				18015E9F179E7D5900491932 /* orthogonal-test2.tmx */,
 				18015EA1179E7F3400491932 /* fixed-ortho-test2.png */,
+				183FBB60179F9EB400197D99 /* test-object-layer.tmx */,
+				183FBB66179F9F5700197D99 /* iso-test-movelayer.tmx */,
+				183FBB68179FA20500197D99 /* iso-test-zorder.tmx */,
+				183FBB62179F9ECA00197D99 /* tmw_desert_spacing.png */,
+				183FBB64179F9F0700197D99 /* iso-test.png */,
+				183FBB6A179FA26600197D99 /* grossinis_sister1.png */,
 				18015B03179E795000491932 /* CloseNormal.png */,
 				18015B05179E795000491932 /* CloseSelected.png */,
 				18015B07179E795000491932 /* Default.png */,
@@ -2103,8 +2130,20 @@
 				18015E94179E795500491932 /* AppDelegate.cpp */,
 				18015E96179E795500491932 /* HelloWorldScene.h */,
 				18015E97179E795500491932 /* HelloWorldScene.cpp */,
+				18F807A0179F6B9000B77604 /* HelpFunctions.cpp */,
+				18F807A1179F6B9000B77604 /* HelpFunctions.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		18091D6E17A0C9CA00EC3889 /* tilemap */ = {
+			isa = PBXGroup;
+			children = (
+				18091D6F17A0C9CA00EC3889 /* maptest.tmx */,
+				18091D7817A0EE0600EC3889 /* maptest1.tmx */,
+				18091D7017A0C9CA00EC3889 /* tmw_desert_spacing.png */,
+			);
+			path = tilemap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2172,6 +2211,15 @@
 				18015B16179E795000491932 /* Icon@2x.png in Resources */,
 				18015D2B179E795300491932 /* project.pbxproj in Resources */,
 				18015EA2179E7F3400491932 /* fixed-ortho-test2.png in Resources */,
+				183FBB61179F9EB400197D99 /* test-object-layer.tmx in Resources */,
+				183FBB63179F9ECA00197D99 /* tmw_desert_spacing.png in Resources */,
+				183FBB65179F9F0700197D99 /* iso-test.png in Resources */,
+				183FBB67179F9F5700197D99 /* iso-test-movelayer.tmx in Resources */,
+				183FBB69179FA20500197D99 /* iso-test-zorder.tmx in Resources */,
+				183FBB6B179FA26600197D99 /* grossinis_sister1.png in Resources */,
+				18091D7117A0C9CA00EC3889 /* maptest.tmx in Resources */,
+				18091D7217A0C9CA00EC3889 /* tmw_desert_spacing.png in Resources */,
+				18091D7917A0EE0600EC3889 /* maptest1.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2551,7 +2599,6 @@
 					"-websockets",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "269B3A75-52B9-463C-A7E3-A893BA256972";
 				USER_HEADER_SEARCH_PATHS = "\"TestTilemap/libs/Chipmunk/include/chipmunk\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
