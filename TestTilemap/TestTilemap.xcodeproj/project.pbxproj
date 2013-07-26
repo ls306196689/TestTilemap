@@ -291,6 +291,7 @@
 		183FBB67179F9F5700197D99 /* iso-test-movelayer.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 183FBB66179F9F5700197D99 /* iso-test-movelayer.tmx */; };
 		183FBB69179FA20500197D99 /* iso-test-zorder.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 183FBB68179FA20500197D99 /* iso-test-zorder.tmx */; };
 		183FBB6B179FA26600197D99 /* grossinis_sister1.png in Resources */ = {isa = PBXBuildFile; fileRef = 183FBB6A179FA26600197D99 /* grossinis_sister1.png */; };
+		18EA07E817A22976007AA0DF /* CCLayerForMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18EA07E617A22976007AA0DF /* CCLayerForMap.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -895,6 +896,8 @@
 		183FBB66179F9F5700197D99 /* iso-test-movelayer.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "iso-test-movelayer.tmx"; sourceTree = "<group>"; };
 		183FBB68179FA20500197D99 /* iso-test-zorder.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "iso-test-zorder.tmx"; sourceTree = "<group>"; };
 		183FBB6A179FA26600197D99 /* grossinis_sister1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grossinis_sister1.png; sourceTree = "<group>"; };
+		18EA07E617A22976007AA0DF /* CCLayerForMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCLayerForMap.cpp; sourceTree = "<group>"; };
+		18EA07E717A22976007AA0DF /* CCLayerForMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLayerForMap.h; sourceTree = "<group>"; };
 		18F807A0179F6B9000B77604 /* HelpFunctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HelpFunctions.cpp; sourceTree = "<group>"; };
 		18F807A1179F6B9000B77604 /* HelpFunctions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpFunctions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2132,6 +2135,8 @@
 				18015E97179E795500491932 /* HelloWorldScene.cpp */,
 				18F807A0179F6B9000B77604 /* HelpFunctions.cpp */,
 				18F807A1179F6B9000B77604 /* HelpFunctions.h */,
+				18EA07E617A22976007AA0DF /* CCLayerForMap.cpp */,
+				18EA07E717A22976007AA0DF /* CCLayerForMap.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2479,6 +2484,7 @@
 				18015CFE179E795300491932 /* CCTMXLayer.cpp in Sources */,
 				18015D3D179E795300491932 /* CCBReader.cpp in Sources */,
 				18015D96179E795300491932 /* CCControlColourPicker.cpp in Sources */,
+				18EA07E817A22976007AA0DF /* CCLayerForMap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
