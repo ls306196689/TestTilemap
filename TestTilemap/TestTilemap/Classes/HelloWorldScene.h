@@ -17,6 +17,9 @@ class HelloWorld : public cocos2d::CCLayer
     float m_distance_init;
     const float m_scale_low_limit = 0.5;
     const float m_scale_up_limit = 2;
+    const float m_distance_limit = 100;
+    float m_distance_limit_x;
+    float m_distance_limit_y;
     cocos2d::CCPoint m_last_move;
     
 public:
@@ -45,9 +48,12 @@ public:
     void addCCTouch(cocos2d::CCSet *pTouches);
     void removeCCTouch(cocos2d::CCSet *pTouches);
 
-    void moveMapByPosition(cocos2d::CCPoint pos);
+//    void moveMapByPosition(cocos2d::CCPoint pos, bool withaction = false);
     
-    cocos2d::CCPoint getMapNewPosition(cocos2d::CCPoint dpos);
+//    cocos2d::CCPoint getMapNewPosition(cocos2d::CCPoint dpos);
+    
+    cocos2d::CCPoint getMapNewPosition(cocos2d::CCPoint dpos, int edgemode = 0);//0:只能靠边；1：无需靠边，2：无需靠边，但离边越远反应越迟钝
+    void moveMapByPosition(cocos2d::CCPoint pos, int edgemode = 0, bool withaction = false);//0:只能靠边；1：无需靠边，2：无需靠边，但离边越远反应越迟钝
     
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(HelloWorld);

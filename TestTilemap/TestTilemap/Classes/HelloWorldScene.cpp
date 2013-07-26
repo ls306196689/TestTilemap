@@ -41,9 +41,11 @@ bool HelloWorld::init()
     }
     m_scale_touch = 1;
     m_distance_init = 0;
+    m_distance_limit_x = m_distance_limit;
 
     m_vec_touches = new std::vector<CCTouch*>(0);
     m_screen_size = CCDirector::sharedDirector()->getWinSize();
+    m_distance_limit_y = m_distance_limit * (m_screen_size.height / m_screen_size.width);
     testTMX();
     testFun(outputstring, "ssdsdsd");
     return true;
@@ -183,7 +185,7 @@ bool HelloWorld::checkShouldMove()
         dp = ccp(dp.x / (float)i,dp.y / (float)i);
     }
     m_last_move = dp;
-    moveMapByPosition(dp);
+    moveMapByPosition(dp,0,false);
     return m_vec_touches->size() > 0;
 }
 void HelloWorld::updateLayerAnchorPoint()
@@ -250,47 +252,93 @@ void HelloWorld::removeCCTouch(cocos2d::CCSet *pTouches)
     if (m_vec_touches->size() == 0) {
         
         CCPoint dp = ccp(m_last_move.x * 5 , m_last_move.y * 5 );
-        moveMapByPosition(dp);
+        moveMapByPosition(dp,0,true);
         m_last_move = CCPointZero;
 
     }
 }
-void HelloWorld::moveMapByPosition(cocos2d::CCPoint pos)
-{
-//    float dis = ccpLength(pos);
-    CCNode *map  = getChildByTag(TAG_map);
-    CCPoint pnew = getMapNewPosition(pos);
-    float dis = ccpDistance(pnew, map->getPosition());
-    if (dis < 20) {
-        map->setPosition(pnew);
-    }
-    else
-    {
-        map->runAction(CCEaseSineOut::create(CCMoveTo::create(0.3, pnew)));
-    }
-}
-cocos2d::CCPoint HelloWorld::getMapNewPosition(cocos2d::CCPoint dpos)
+
+cocos2d::CCPoint HelloWorld::getMapNewPosition(cocos2d::CCPoint dpos, int edgemode)//0:只能靠边；1：无需靠边，2：无需靠边，但离边越远反应越迟钝
 {
     CCNode *map  = getChildByTag(TAG_map);
     
     CCPoint p = map->getPosition();
     CCPoint pan = map->getAnchorPoint();
     float scalemap = map->getScale();
+    float limitx = m_distance_limit_x * scalemap;
+    float limity = m_distance_limit_y * scalemap;
     CCPoint plb = ccp(p.x - m_map_size.width * pan.x * scalemap, p.y - m_map_size.height * pan.y* scalemap);
     CCPoint prt = ccp(plb.x + m_map_size.width * scalemap,plb.y + m_map_size.height * scalemap);
-    if (plb.x + dpos.x > 0) {
-        dpos.x = -plb.x;
-    }
-    if (plb.y + dpos.y > 0) {
-        dpos.y = -plb.y;
+    
+    switch (edgemode) {
+        case 0:
+            if (plb.x + dpos.x > - limitx) {
+                dpos.x = - limitx-plb.x;
+            }
+            if (plb.y + dpos.y > - limity) {
+                dpos.y = - limity-plb.y;
+            }
+            
+            if ((prt.x + dpos.x) - m_screen_size.width <  limitx) {
+                dpos.x = limitx + (m_screen_size.width - prt.x);
+            }
+            if ((prt.y + dpos.y) - m_screen_size.height < limity) {
+                dpos.y = limity + (m_screen_size.height - prt.y);
+            }
+            break;
+        case 1:
+            
+            break;
+        case 2:
+            if (plb.x + dpos.x >  - limitx) {
+                dpos.x = dpos.x * 2.0/sqrtf(plb.x + dpos.x + limitx + 4.0);
+            }
+            if (plb.y + dpos.y >  - m_distance_limit_y) {
+                dpos.y = dpos.y * 2.0/sqrtf(plb.y + dpos.y + limity + 4.0);
+            }
+            
+            if ((prt.x + dpos.x) - m_screen_size.width <  limitx) {
+                dpos.x =  dpos.x * 2.0/sqrtf(m_screen_size.width - prt.x - dpos.x + limitx + 4.0);
+            }
+            if ((prt.y + dpos.y) - m_screen_size.height <  limity ) {
+                dpos.y = dpos.y * 2.0/sqrtf(m_screen_size.height - prt.y - dpos.y + limity + 4.0);
+            }
+//            CCLOG_F((prt.y + dpos.y) - m_screen_size.height);
+            CCLOG_F(limitx);
+            break;
+            
+        default:
+            break;
     }
     
-//    if (prt.x < m_screen_size.width) {
-//        dpos.x += (m_screen_size.width - prt.x);
+//    if (plb.x + dpos.x > 0) {
+//        dpos.x = -plb.x;
 //    }
-//    if (prt.y < m_screen_size.height) {
-//        dpos.y += (m_screen_size.height - prt.y);
+//    if (plb.y + dpos.y > 0) {
+//        dpos.y = -plb.y;
 //    }
-    CCLOG_POINT(dpos);
+//    
+//    if ((prt.x + dpos.x) - m_screen_size.width < 0) {
+//        dpos.x =  (m_screen_size.width - prt.x);
+//    }
+//    if ((prt.y + dpos.y) - m_screen_size.height < 0) {
+//        dpos.y = (m_screen_size.height - prt.y);
+//    }
+    
+
     return ccpAdd(dpos, map->getPosition());
+}
+void HelloWorld::moveMapByPosition(cocos2d::CCPoint pos, int edgemode, bool withaction)//0:只能靠边；1：无需靠边，2：无需靠边，但离边越远反应越迟钝
+{
+    CCNode *map  = getChildByTag(TAG_map);
+    CCPoint pnew = map->getPosition();
+    pnew = getMapNewPosition(pos,edgemode);
+    
+    if (withaction) {
+        map->runAction(CCEaseSineOut::create(CCMoveTo::create(0.3, pnew)));
+    }
+    else
+    {
+        map->setPosition(pnew);
+    }
 }
