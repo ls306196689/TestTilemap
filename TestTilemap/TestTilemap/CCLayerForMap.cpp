@@ -13,15 +13,12 @@
 
 using namespace cocos2d;
 using namespace CocosDenshion;
-enum TAG_node {
-    TAG_map = 123,
-    
-};
+//enum TAG_node {
+//    TAG_map = 123,
+//    
+//};
 
-void outputstring (std::string &str)
-{
-    CCLOG("%s",str.c_str());
-}
+
 //const float HelloWorld::m_scale_low_limit = 0.5;
 CCScene* CCLayerForMap::scene()
 {
@@ -137,7 +134,7 @@ void CCLayerForMap::ccTouchesMoved(cocos2d::CCSet *pTouches, cocos2d::CCEvent *p
     checkShouldMove();
     updateLayerAnchorPoint();
     checkShouldScale();
-    updateLayerAnchorPoint();
+//    updateLayerAnchorPoint();
 }
 void CCLayerForMap::ccTouchesEnded(cocos2d::CCSet *pTouches, cocos2d::CCEvent *pEvent)
 {

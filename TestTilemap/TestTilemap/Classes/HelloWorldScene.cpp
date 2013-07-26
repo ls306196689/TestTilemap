@@ -1,14 +1,10 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
 #include "HelpFunctions.h"
-#define WIDTH_MAP 1024.0
-#define HEIGHT_MAP 1024.0
+
 using namespace cocos2d;
 using namespace CocosDenshion;
-enum TAG_node {
-    TAG_map = 123,
-    
-    };
+
 
 void outputstring (std::string &str)
 {

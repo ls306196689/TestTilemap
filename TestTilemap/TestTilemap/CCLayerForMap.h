@@ -12,7 +12,10 @@
 #include "cocos2d.h"
 
 class CCLayerForMap:public cocos2d::CCLayer {
-    
+    enum TAG_node {
+        TAG_map = 123,
+        
+    };
     
     cocos2d::CCPoint m_delta_last;
     cocos2d::CCSize m_map_size;

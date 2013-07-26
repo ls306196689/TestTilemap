@@ -7,6 +7,10 @@ typedef void FUNCALL_TEST (std::string &);
 
 class HelloWorld : public cocos2d::CCLayer
 {
+    enum TAG_node {
+        TAG_map = 123,
+        
+    };
     cocos2d::CCPoint m_delta_last;
     cocos2d::CCSize m_map_size;
     cocos2d::CCSprite*    m_tamara;
